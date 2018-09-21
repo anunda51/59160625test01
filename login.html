@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.css">
+    <title>Login</title>
+</head>
+<body>
+    <section class="hero is-primary is-small">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title">
+              Login
+            </h1>
+          </div>
+        </div>
+    </section>
+    <div class="container">
+        <div class="help is-danger" id="output"></div>
+        <div class="notification">
+            <div class="field">
+                <label class="label">UserName</label>
+                <p class="control has-icons-left has-icons-right">
+                  <input class="input" type="text" id="username" placeholder="Username">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-envelope"></i>
+                  </span>
+                  <span class="icon is-small is-right">
+                    <i class="fas fa-check"></i>
+                  </span>
+                </p>
+                <div class="help is-danger" id="loginEmpty"></div>
+            </div>
+            <div class="field">
+                <label class="label">Password</label>
+                <p class="control has-icons-left">
+                  <input class="input" type="password" id="password" placeholder="Password">
+                  <span class="icon is-small is-left">
+                    <i class="fas fa-lock"></i>
+                  </span>
+                </p>
+                <div class="help is-danger" id="passEmpty"></div>
+            </div>
+            <div class="field">
+                    <label class="label">AutoBot</label>
+                    <p class="control has-icons-left has-icons-right">
+                      <input class="input" type="text" id="autobot" placeholder="Fill Number">
+                      <span class="icon is-small is-left">
+                        <i class="fas fa-envelope"></i>
+                      </span>
+                      <span class="icon is-small is-right">
+                        <i class="fas fa-check"></i>
+                      </span>
+                    </p>
+                    <div class="help is-danger" id="fillEmpty"></div>
+            </div>
+            <label><a href="forget.html">Forget Password?</a></label>
+            <br>
+            <br>
+            <div class="field">
+                <p class="control">
+                  <button class="button is-success" id="login" onclick="checkLogin()">
+                    Login
+                  </button>
+                </p>
+            </div>
+        </div>
+        
+
+        <script>
+            var username = document.getElementById("username");
+            var password = document.getElementById("password");
+            var autobot = document.getElementById("autobot");
+            var output = document.getElementById("output");
+            var loginEmpty = document.getElementById("loginEmpty");
+            var passEmpty = document.getElementById("passEmpty");
+            var fillEmpty = document.getElementById("fillEmpty");
+            
+            function checkLogin(){
+                if(username.value==="admin" && password.value==="1234"){
+                    console.log("success")
+                }else if(username.value==="" && password.value==="" && autobot.value===""){
+                    showErrorMessage1();
+                }else if(username.value==="" || password.value==="" || autobot.value===""){
+                    if(username.value===""){
+                        showErrorMessage2();
+                    }
+                    if(password.value===""){
+                        showErrorMessage3();
+                    }
+                    if(autobot.value===""){
+                        showErrorMessage4();
+                    }
+                }
+                
+            }
+            function showErrorMessage1(){
+                output.innerHTML = "กรุณากรอกข้อมูลให้ครบทุกช่อง";
+            }
+            function showErrorMessage2(){
+                loginEmpty.innerHTML = "กรุณาใส่ Username";
+            }
+            function showErrorMessage3(){
+                passEmpty.innerHTML = "กรุณาใส่ Password";
+            }
+            function showErrorMessage4(){
+                fillEmpty.innerHTML = "กรุณาใส่ Fill Number";
+            }
+        </script>
+
+    </div>
+</body>
+</html>

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="./node_modules/bulma/css/bulma.css">
+    <title>forget password</title>
+</head>
+<body>
+    <section class="hero is-primary is-small">
+        <div class="hero-body">
+          <div class="container has-text-centered">
+            <h1 class="title">
+              Forget Password
+            </h1>
+          </div>
+        </div>
+    </section>
+
+    <div class="container">
+            <div class="notification">
+                    <div class="field">
+                            <label class="label">Confirm Email</label>
+                            <div class="control has-icons-left has-icons-right">
+                              <input class="input" type="email" id = "inputEmail" placeholder="59160625@hotmail.com" value="">
+                              <span class="icon is-small is-left">
+                                <i class="fas fa-envelope"></i>
+                              </span>
+                              <span class="icon is-small is-right">
+                                <i class="fas fa-exclamation-triangle"></i>
+                              </span>
+                            </div>
+                            <div class="help is-success" id="outputSuccess"></div>
+                            <div class="help is-danger" id="outputFail"></div>
+                    </div>
+                    <div class="field">
+                        <p class="control">
+                            <button class="button is-success" id="confirm" onclick="checkEmail()">
+                                Confirm
+                            </button>
+                            <button class="button is-success" href="login.html" id="back">
+                                Back
+                                <a href="login.html"></a>
+                            </button>
+                        </p>
+                    </div>
+                    
+
+                    <script>
+                        var inputEmail = document.getElementById("inputEmail");
+                        var outputSuccess = document.getElementById("outputSuccess");
+                        var outputFail = document.getElementById("outputFail");
+
+                        function checkEmail(){
+                            if(inputEmail.value==="59160625@hotmail.com"){
+                                sendSuccess();
+                            }else{
+                                sendFail();
+                            }
+                        }
+
+                        function sendSuccess(){
+                            outputSuccess.innerHTML = "The password was sent to the email!"
+                        }
+                        function sendFail(){
+                            outputFail.innerHTML = "This Email is invalid!"
+                        }
+                    </script>
+            </div>
+    </div>
+</body>
+</html>
